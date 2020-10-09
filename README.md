@@ -42,6 +42,12 @@ you have downloaded**. To achieve this goal you should follow these 3 steps:
      ```
      $ sh EPGranking.sh > EPGranking.csv
      ```
+Your assignment repo should have the following four files:
+
+  1. This `README.md` file.
+  2. The COVID19 data file `comarques_setmanal.csv`.
+  3. The shell script `EPGranking.sh`.
+  4. The ranking file `EPGranking.csv`.
 
 The file `EPGranking.csv` should have the following characteristics:
 
@@ -63,6 +69,20 @@ The file `EPGranking.csv` should have the following characteristics:
      7-day aggregation periods since the beginning of the COVID19 outbreak.
      This ranking should be based on the most recent values for the risk
      of outbreak in the data file you have downloaded.
+
+## Evaluation rubric
+
+The rubric to evaluate this assignment consists of the following items:
+
+  * Does the assignment contain the four required files?
+  * Does the file `EPGranking.csv` contain the two required columns?
+  * Is the file `EPGranking.csv` ordered by the descending risk of
+    outbreak of the most recent date from the downloaded data?
+  * Does the Unix shell command
+     ```
+     $ sh EPGranking.sh > EPGranking.csv
+     ```
+    runs without errors and produces the expected result?
 
 ## Frequently Asked Questions
 
