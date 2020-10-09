@@ -33,11 +33,44 @@ you have downloaded**. To achieve this goal you should follow these 3 steps:
 
   2. Create a shell script called `EPGranking.sh` with a text editor
    and type there the Unix shell commands necessary to produce the
-   ranking of Catalan counties by their risk of outbreak.
+   ranking of Catalan counties by their risk of outbreak. The risk
+   of outbreak is stored in the column called `IEPG_CONFIRMAT`.
 
-  3. Once you have created the shell script in step 2, run it as
-   follows to create a text file called `EPGranking.csv`, containing
-   the ranking of Catalan counties by their risk of outbreak:
+  3. Once you have created the shell script in step 2, run it in the
+   Unix shell as follows to create a text file called `EPGranking.csv`,
+   containing the ranking of Catalan counties by their risk of outbreak:
      ```
      $ sh EPGranking.sh > EPGranking.csv
      ```
+
+The file `EPGranking.csv` should have the following characteristics:
+
+  1. It should be a CSV file using semicolon (`;`) as column separator.
+  2. It should have the following line as first (column header) line:
+     ```
+     NOM;IEPG_CONFIRMAT
+     ```
+  3. The second and following lines should contain the names of counties
+     and the value of their risk of outbreak separated by a semicolon (`;`).
+     For instance, one such lines could look like this one:
+     ```
+     SEGRIA;205.625
+     ```
+  4. The second and following lines should be stored in descending order
+     of the second column, corresponding to the risk of outbreak, i.e.,
+     the largest value should be at the top of the file, and the lowest
+     at the bottom. The original data file provides these values for
+     7-day aggregation periods since the beginning of the COVID19 outbreak.
+     This ranking should be based on the most recent values for the risk
+     of outbreak in the data file you have downloaded.
+
+## Frequently Asked Questions
+
+1. Should I update my assignment on the deadline to provide a ranking based
+on the most recent values for the risk of outbreak?
+
+  No, the ranking must be based in the most recent values for the risk
+  of outbreak **in the data file you have downloaded**. For instance, you
+  can you download the data file one week before the deadline and the
+  ranking will be correct as long as it based on the most recent date
+  stored on that file.
