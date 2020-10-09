@@ -67,8 +67,7 @@ The file `EPGranking.csv` should have the following characteristics:
 ## Frequently Asked Questions
 
 1. Should I update my assignment on the deadline to provide a ranking based
-on the most recent values for the risk of outbreak?
-
+on the most recent values for the risk of outbreak? 
   No, the ranking must be based in the most recent values for the risk
   of outbreak **in the data file you have downloaded**. For instance, you
   can you download the data file one week before the deadline and the
