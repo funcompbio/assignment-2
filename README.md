@@ -21,10 +21,9 @@ assignment will have a penalty.
 
 ## Description
 
-The goal of this assignment is to provide a ranking of Catalan counties
-by their risk of outbreak, largest on top, lowest at the bottom, on the
-**most recent date** available in the data you have downloaded. To achieve
-this goal you should follow these 3 steps:
+The goal of this assignment is to provide a **ranking of Catalan counties
+by their risk of outbreak on the most recent date available in the data
+you have downloaded**. To achieve this goal you should follow these 3 steps:
 
   1. Go to the Catalan Health Departament COVID data portal at
    [https://dadescovid.cat](https://dadescovid.cat) and follow the
@@ -37,9 +36,8 @@ this goal you should follow these 3 steps:
    ranking of Catalan counties by their risk of outbreak.
 
   3. Once you have created the shell script in step 2, run it as
-   follows to create a text file called `EPGranking.csv` containing
-   the ranking of Catalan counties by their risk of outbreak, largest
-   on top, lowest at the bottom:
-   ```
-   $ sh EPGranking.sh > EPGranking.csv
-   ```
+   follows to create a text file called `EPGranking.csv`, containing
+   the ranking of Catalan counties by their risk of outbreak:
+     ```
+     $ sh EPGranking.sh > EPGranking.csv
+     ```
