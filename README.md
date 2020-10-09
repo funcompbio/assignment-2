@@ -1,5 +1,5 @@
 # Assignment 2 - FCB 2020
-### Deadline: 06/10/2020 - 23:59
+### Deadline: 16/10/2020 - 23:59
 
 ## Submission procedure
 
