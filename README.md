@@ -23,7 +23,8 @@ assignment will have a penalty.
 
 The goal of this assignment is to provide a **ranking of Catalan counties
 by their risk of outbreak on the most recent date available in the data
-you have downloaded**. To achieve this goal you should follow these 3 steps:
+you have downloaded among the general population**. To achieve this goal
+you should follow these 3 steps:
 
   1. Go to the Catalan Health Departament COVID data portal at
    [https://dadescovid.cat](https://dadescovid.cat) and follow the
@@ -57,8 +58,10 @@ The file `EPGranking.csv` should have the following characteristics:
      NOM;IEPG_CONFIRMAT
      ```
   3. The second and following lines should contain the names of counties
-     and the value of their risk of outbreak separated by a semicolon (`;`).
-     For instance, one such lines could look like this one:
+     and the value of their risk of outbreak separated by a semicolon (`;`)
+     derived from the general population, that is, **excluding the data
+     from geriatric residences**. For instance, one such lines could look
+     like this one:
      ```
      SEGRIA;205.625
      ```
