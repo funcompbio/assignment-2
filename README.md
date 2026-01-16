@@ -32,7 +32,7 @@ The goal of this assignment is to **create a shell script called
 `ari_incidence.sh` that extracts a specific subset of data described below
 from the file `analyzed_samples.csv`**, which contains epidemiological
 information on acute respiratory infections (ARI) from the infection
-surveillance system in Catalonia ([SIVIC](https://sivic.salut,gencat.cat).
+surveillance system in Catalonia ([SIVIC](https://sivic.salut,gencat.cat)).
 
 This shell script should be created in such a way that it can be run
 in the Unix shell and its output redirected to a file with the name
@@ -42,10 +42,11 @@ in the Unix shell and its output redirected to a file with the name
 $ sh ari_incidence.sh > incidence_bcn.csv
 ```
 
-The resulting file `incidence_bcn.csv` should contain the subset of data from
-the file `analyzed_samples.csv` storing information about the incidence of ARI
-in women between 70 and 74 years of age, living in the city of Barcelona during
-the year 2024, by epidemiological week in ascending order.
+The resulting file `incidence_bcn.csv` should be added to this repo and contain
+the subset of data from the file `analyzed_samples.csv` storing information
+about the incidence of ARI in women between 70 and 74 years of age, living in
+the city of Barcelona during the year 2024, by epidemiological week in ascending
+order.
 
 Your assignment repo should have the following four files:
 
