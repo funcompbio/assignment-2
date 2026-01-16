@@ -1,0 +1,27 @@
+name: FCB-autograding
+
+on: [push]
+
+jobs:
+  build:
+    name: autograding
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checking for README.md
+        run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e README.md ] ; then exit 0 ;  else { echo -e "${RED}YOU HAVE REMOVED THE FILE README.md AND YOU SHOULD HAVE NOT DONE IT. PLEASE RESTORE IT BACK${NC}" ; exit 1 ; } ; fi
+      - name: Checking for academic integrity statement
+        run: RED='\033[0;31m'; NC='\033[0m' ; x=`grep 'The work here submitted' README.md | perl -nae 'print $F[1]'` ; if [ "$x" != [X] ] && [ "$x" != [x] ] ; then { if [ "$x" == [\"X\"] ] || [ "$x" == [\'X\'] ] || [ "$x" == [\"x\"] ] || [ "$x" == [\'x\'] ] ; then echo -e "${RED}DO NOT USE QUOTE CHARACTERS WHEN CHECKING THE ACADEMIC INTEGRITY STATEMENT${NC}" ; else echo -e "${RED}YOU HAVE NOT YET AGREED TO THE ACADEMIC INTEGRITY STATEMENT (SEE README.md FILE)${NC}" ; fi ; exit 1 ; } ; fi
+      - name: Checking for analyzed_samples.csv
+        run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e analyzed_samples.csv ] ; then { if [ `md5sum analyzed_samples.csv | cut -d ' ' -f 1` == "f4706549ecb647cfa2e3d0c5b428af64" ] ; then exit 0 ; else { echo -e "${RED}WRONG FILE analyzed_samples.csv${NC}" ; exit 1 ; } ; fi ; } ; else { echo -e "${RED}MISSING FILE analyzed_samples.csv${NC}" ; exit 1 ; } ; fi
+      - name: Checking for ari_incidence.sh
+        run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e ari_incidence.sh ] ; then exit 0 ;  else { echo -e "${RED}MISSING FILE ari_incidence.sh${NC}" ; exit 1 ; } ; fi
+      - name: Check results file incidence_bcn.csv
+        run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e incidence_bcn.csv ] ; then { if [ `cat incidence_bcn.csv | tr -d '\r' | md5sum | cut -d ' ' -f 1` == "b2063d82825da95d88be1eae7805881c" ] ; then exit 0 ; else { echo -e "${RED}CONTENTS IN incidence_bcn.csv ARE WRONG${NC}" ; exit 1 ; } ; fi ; } ; else { echo -e "${RED}MISSING FILE incidence_bcn.csv${NC}" ; exit 1 ; } fi
+      - name: Check for recursive call
+        run: RED='\033[0;31m'; NC='\033[0m' ; rec=`sed 's/#.*$//g' ari_incidence.sh | grep -wl 'ari_incidence.sh'` ; if [ "$rec" == "ari_incidence.sh" ] ; then { echo -e "${RED}THE SCRIPT ari_incidence.sh MAKES A RECURSIVE CALL TO ITSELF. PLEASE REMOVE THAT CALL${NC}" ; exit 1 ; } ; else exit 0 ; fi
+      - name: Run ari_incidence.sh
+        run: RED='\033[0;31m'; NC='\033[0m' ; sh ari_incidence.sh > run_incidence_bcn.csv 2> run_incidence_bcn.err ; if [ $? -ne 0 ] ; then RED='\033[0;31m'; NC='\033[0m' ; echo -e "${RED}THE SCRIPT ari_incidence.sh DID NOT RUN PROPERLY. PLEASE SEE HERE BELOW FOR DETAILS${NC}" ; cat run_incidence_bcn.err ; exit 1 ; fi
+      - name: Check that ari_incidence.sh produces the expected results file incidence_bcn.csv
+        run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e run_incidence_bcn.csv ] ; then { if [ `md5sum run_incidence_bcn.csv | cut -d ' ' -f 1` == "b2063d82825da95d88be1eae7805881c" ] ; then exit 0 ; else { echo -e "${RED}THE OUTPUT of ari_incidence.sh IS WRONG${NC}" ; exit 1 ; } ; fi ; } ; else { echo -e "${RED}THE SHELL SCRIPT air_incidence.sh DOES NOT PRODUCE THE CSV FILE incidence_bcn.csv${NC}" ; exit 1 ; } ; fi
