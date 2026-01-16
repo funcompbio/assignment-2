@@ -28,8 +28,8 @@ letter `X` between the squared brackets preceding the statement:
 
 ## Description
 
-The goal of this assignment is to **create a shell script, called
-`ari_incidence.sh`, that extracts a specific subset of data described below
+The goal of this assignment is to **create a shell script called
+`ari_incidence.sh` that extracts a specific subset of data described below
 from the file `analyzed_samples.csv`**, which contains epidemiological
 information on acute respiratory infections (ARI) from the infection
 surveillance system in Catalonia ([SIVIC](https://sivic.salut,gencat.cat).
