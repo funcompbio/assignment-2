@@ -41,6 +41,7 @@ in the Unix shell and its output redirected to a file with the name
 ```
 $ sh ari_incidence.sh > incidence_bcn.csv
 ```
+
 The resulting file `incidence_bcn.csv` should contain the subset of data from
 the file `analyzed_samples.csv` storing information about the incidence of ARI
 in women between 70 and 74 years of age, living in the city of Barcelona during
